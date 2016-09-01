@@ -62,7 +62,7 @@ public class Test {
 	}
 
 	public static void main(String[] args) throws DomoticaException {
-		House house = House.getInstance("house");
+		House house = new House("house");
 		new HouseView(house);
 		for (int i = 0; i < 100; i++) {
 			round(house);
