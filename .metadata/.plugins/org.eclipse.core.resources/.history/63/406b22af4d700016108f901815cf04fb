@@ -1,17 +1,12 @@
 package domotica.model;
 
-import domotica.state.AircoState;
-import domotica.state.AircoTemperature;
-import domotica.state.DoorState;
-import domotica.state.DoorsClosed;
-
 @SuppressWarnings("serial")
 public abstract class Room extends DomoticaObject {
 
-	private AircoTemperature aircoTemperature;
+	private int aircoTemperature;
 	private float lightLevel;
 	private boolean rollerShutterDown;
-	private DoorsClosed doorClosed;
+	private boolean doorClosed;
 
 	Room(String id) {
 		super(id);
@@ -25,24 +20,15 @@ public abstract class Room extends DomoticaObject {
 		};
 	}
 
-	public AircoState getAircoTemperature()		{	return aircoTemperature.getState(); }
+	public int getAircoTemperature()		{	return aircoTemperature; }
 	public float getLightLevel() 			{	return lightLevel; }
 	public boolean isRollerShutterDown()	{	return rollerShutterDown; }
-	public DoorState isDoorClosed() 			{	return doorClosed.getState(); }
+	public boolean isDoorClosed() 			{	return doorClosed; }
 	
 	public void setAircoTemperature(int aircoTemperature) throws ElectricityException {
 		Checks.checkInt(aircoTemperature, 15, 25);
 		Checks.checkElectricity();
-		
-		if(aircoTemperature < 19){
-			this.aircoTemperature.setState(this.aircoTemperature.getLowState());
-		}
-		else if(aircoTemperature >= 19 && aircoTemperature < 22){
-			this.aircoTemperature.setState(this.aircoTemperature.getMidState());
-		}
-		else{
-			this.aircoTemperature.setState(this.aircoTemperature.getHighState());
-		}
+		this.aircoTemperature = aircoTemperature;
 	}
 
 	public void setLightLevel(float lightLevel) throws ElectricityException {
@@ -56,16 +42,16 @@ public abstract class Room extends DomoticaObject {
 		this.rollerShutterDown = rollerShutterDown;
 	}
 	
-	public void setDoorsClosed(DoorState doorClosed) throws ElectricityException {
+	public void setDoorsClosed(boolean doorClosed) throws ElectricityException {
 		Checks.checkElectricity();
-		this.doorClosed.setState(doorClosed);
+		this.doorClosed = doorClosed;
 	}
 
 	public void reset() throws DomoticaException {
 		setAircoTemperature(20);
 		setLightLevel(0);
 		setRollerShutterDown(true);
-		this.doorClosed.setState(this.doorClosed.getClosedState());
+		setDoorsClosed(true);
 	}
 	
 	public void openRoom() {
@@ -73,7 +59,7 @@ public abstract class Room extends DomoticaObject {
 			setAircoTemperature(20);
 			setLightLevel(1);
 			setRollerShutterDown(false);
-			this.doorClosed.setState(this.doorClosed.getOpenState());
+			setDoorsClosed(false);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +71,7 @@ public abstract class Room extends DomoticaObject {
 			setAircoTemperature(10);
 			setLightLevel(0);
 			setRollerShutterDown(true);
-			this.doorClosed.setState(this.doorClosed.getClosedState());
+			setDoorsClosed(true);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

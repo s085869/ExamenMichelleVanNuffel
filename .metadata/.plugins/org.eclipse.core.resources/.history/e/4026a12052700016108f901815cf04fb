@@ -3,7 +3,6 @@ package domotica.test;
 import java.util.*;
 
 import domotica.model.*;
-import domotica.state.DoorsClosed;
 import domotica.view.*;
 
 public class Test {
@@ -19,15 +18,12 @@ public class Test {
 	}
 
 	private static void round(House house) throws DomoticaException {
-		
-		DoorsClosed door = new DoorsClosed();
-		
 		{
 			Living living = house.getLiving();
 			living.setAircoTemperature(randomInt(15, 25));
 			living.setLightLevel(randomFloat(0, 1));
 			living.setRollerShutterDown(!living.isRollerShutterDown());
-			living.setDoorsClosed(door.switchState());
+			living.setDoorsClosed(!living.isDoorClosed());
 			living.setTvSwitchedOn(!living.isTvSwitchedOn());
 			living.setTvChannel(randomInt(0, 99));
 			living.setTvVolume(randomInt(0, 10));
@@ -37,7 +33,7 @@ public class Test {
 			kitchen.setAircoTemperature(randomInt(15, 25));
 			kitchen.setLightLevel(randomFloat(0, 1));
 			kitchen.setRollerShutterDown(!kitchen.isRollerShutterDown());
-			kitchen.setDoorsClosed(door.getClosedState());
+			kitchen.setDoorsClosed(!kitchen.isDoorClosed());
 			kitchen.setCooktopSwitchedOn(!kitchen.isCooktopSwitchedOn());
 			kitchen.setExtractorHoodSwitchedOn(!kitchen.isExtractorHoodSwitchedOn());
 			kitchen.setRefrigeratorTemperature(randomInt(1, 15));
@@ -48,7 +44,7 @@ public class Test {
 			bathroom.setAircoTemperature(randomInt(15, 25));
 			bathroom.setLightLevel(randomFloat(0, 1));
 			bathroom.setRollerShutterDown(!bathroom.isRollerShutterDown());
-			bathroom.setDoorsClosed();
+			bathroom.setDoorsClosed(!bathroom.isDoorClosed());
 			bathroom.setShowerTemperature(randomInt(10, 60));
 			bathroom.setShowerFlowLevel(randomFloat(0, 1));
 			bathroom.setTapTemperature(randomInt(10, 60));

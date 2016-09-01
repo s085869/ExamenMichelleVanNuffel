@@ -16,7 +16,6 @@ public class HighTempState implements AircoState{
 
 	@Override
 	public void lowerTemperature() {
-		airco.setState(airco.getMidState());
 		System.out.println("Lowering temperature ...");
 		
 	}

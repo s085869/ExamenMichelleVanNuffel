@@ -85,7 +85,7 @@ public abstract class Room extends DomoticaObject {
 			setAircoTemperature(10);
 			setLightLevel(0);
 			setRollerShutterDown(true);
-			this.doorClosed.setState(this.doorClosed.getClosedState());
+			setDoorsClosed(true);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

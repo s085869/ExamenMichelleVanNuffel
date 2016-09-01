@@ -35,12 +35,5 @@ public class DoorsClosed {
 		this.state = state;
 	}
 	
-	public void switchState(){
-		if(state instanceof OpenedDoorState){
-			this.state = closedState;
-		}
-		else{
-			this.state = openState;
-		}
-	}
+	
 }

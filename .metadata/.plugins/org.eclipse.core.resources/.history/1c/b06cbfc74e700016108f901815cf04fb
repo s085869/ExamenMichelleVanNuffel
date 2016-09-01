@@ -10,7 +10,6 @@ public class ClosedDoorState implements DoorState{
 	
 	@Override
 	public void openDoor() {
-		door.setState(door.getOpenState());
 		System.out.println("Opening the door ...");
 	}
 

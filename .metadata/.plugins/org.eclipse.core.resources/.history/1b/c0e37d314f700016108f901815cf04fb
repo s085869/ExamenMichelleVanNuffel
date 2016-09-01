@@ -10,14 +10,13 @@ public class HighTempState implements AircoState{
 	
 	@Override
 	public void higherTemperature() {
-		System.out.println("Highest temperature reached!");
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void lowerTemperature() {
-		airco.setState(airco.getMidState());
-		System.out.println("Lowering temperature ...");
+		// TODO Auto-generated method stub
 		
 	}
 

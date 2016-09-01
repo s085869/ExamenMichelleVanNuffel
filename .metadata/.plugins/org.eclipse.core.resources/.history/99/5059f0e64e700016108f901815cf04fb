@@ -15,7 +15,6 @@ public class OpenedDoorState implements DoorState{
 
 	@Override
 	public void closeDoor() {
-		door.setState(door.getClosedState());
 		System.out.println("Closing the door ...");	
 	}
 	
