@@ -1,0 +1,38 @@
+package domotica.state;
+
+public class AircoTemperature {
+	private AircoState lowState;
+	private AircoState midState;
+	private AircoState highState;
+	
+	private DoorState state = getClosedState();
+	
+	public DoorsClosed(){
+		openState = new OpenedDoorState(this);
+		closedState = new ClosedDoorState(this);
+	}
+	
+	public void openDoor(){
+		getState().openDoor();
+	}
+	
+	public void closeDoor(){
+		getState().closeDoor();
+	}
+
+	DoorState getOpenState() {
+		return openState;
+	}
+
+	DoorState getClosedState() {
+		return closedState;
+	}
+
+	DoorState getState() {
+		return state;
+	}
+
+	void setState(DoorState state) {
+		this.state = state;
+	}
+}

@@ -1,0 +1,8 @@
+package domotica.state;
+
+public class DoorsClosed {
+	DoorState openState;
+	DoorState closedState;
+	
+	DoorState state = closedState;
+}

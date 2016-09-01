@@ -1,1 +1,8 @@
 1472732361130	Delete element
+1472734466348	Rename type 'State'
+1472734552232	Delete element
+1472734556705	Delete element
+1472734774361	Rename type 'OpenDoorState'
+1472736198164	Encapsulate field 'openState'
+1472736206738	Encapsulate field 'closedState'
+1472736216162	Encapsulate field 'state'

@@ -1,0 +1,39 @@
+package domotica.state;
+
+public class DoorsClosed {
+	private DoorState openState;
+	private DoorState closedState;
+	
+	private DoorState state = getClosedState();
+	
+	public DoorsClosed(){
+		setOpenState(new OpenedDoorState(this));
+		setClosedState(new ClosedDoorState(this));
+	}
+	
+	public void openDoor(){
+		getState().openDoor();
+	}
+	
+	public void closeDoor(){
+		getState().closeDoor();
+	}
+
+	DoorState getOpenState() {
+		return openState;
+	}
+
+	DoorState getClosedState() {
+		return closedState;
+	}
+
+	DoorState getState() {
+		return state;
+	}
+
+	void setState(DoorState state) {
+		this.state = state;
+	}
+	
+	
+}

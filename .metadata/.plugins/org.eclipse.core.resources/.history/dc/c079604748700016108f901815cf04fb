@@ -1,0 +1,17 @@
+package domotica.state;
+
+public class MidTempState implements AircoState{
+
+	@Override
+	public void higherTemperature() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void lowerTemperature() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

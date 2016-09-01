@@ -1,0 +1,15 @@
+package domotica.state;
+
+public class ClosedDoorState implements DoorState{
+
+	@Override
+	public void openDoor() {
+		System.out.println("Opening the door ...");
+	}
+
+	@Override
+	public void closeDoor() {
+		System.out.println("The door is already closed!");
+	}
+
+}

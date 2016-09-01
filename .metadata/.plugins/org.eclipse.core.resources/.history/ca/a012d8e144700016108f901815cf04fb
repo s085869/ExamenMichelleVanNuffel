@@ -1,0 +1,17 @@
+package domotica.state;
+
+public class ClosedDoorState implements DoorState{
+
+	@Override
+	public void openDoor() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void closeDoor() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
